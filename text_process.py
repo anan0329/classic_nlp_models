@@ -1,8 +1,8 @@
-from collections import Counter, defaultdict
+from collections import defaultdict
 from typing import List
 
 class Vocab:
-    def __init__(self, tokens: List=None):
+    def __init__(self, tokens: List[str]=None):
         self.idx_to_token = list()
         self.token_to_idx = dict()
         
@@ -40,3 +40,10 @@ class Vocab:
     def convert_ids_to_tokens(self, indices):
         return [self.idx_to_token[index] for index in indices]
     
+if __name__ == "__main__":
+    sents = [["I", "see", ",", "I", "come", ",", "I", "conquer"], 
+             ["A", "friend", "in", "need", "is", "a", "friend", "indeed"]]
+    print(f"{sents[0]}=")
+    vocab = Vocab.build(sents)
+    print(vocab.convert_tokens_to_ids(sents[0]))
+    print(vocab.convert_ids_to_tokens(range(len(vocab))))
