@@ -12,9 +12,6 @@ class Vocab:
                 
             self.token_to_idx = {token: idx for idx, token in enumerate(tokens)}
             self.idx_to_token = [*self.token_to_idx]
-            # for token in tokens:
-            #     self.idx_to_token.append(token)
-            #     self.token_to_idx[token] = len(self.token_to_idx) - 1
             self.unk = self.token_to_idx['<unk>']
             
     @classmethod
